@@ -1,0 +1,13 @@
+# IDE and OS cruft
+.idea
+.vscode
+.DS_Store
+
+# Python cruft
+venv
+__pycache__
+*.pyc
+
+# Data files
+*.zip
+*.csv
