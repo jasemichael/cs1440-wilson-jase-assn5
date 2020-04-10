@@ -1,31 +1,26 @@
-# CS 1440 Assignment 6 Instructions
+# CS 1440 Assignment 5 Instructions
 
 ## Requirements
 
 *   Your program will accept one or two command line arguments:
-    1.  The starting URL specified as an absolute URL (see below for an explanation of what an absolute URL is)
+    0.  The starting URL specified as an absolute URL (see below for an explanation of what an absolute URL is)
         *   Print an error message when this argument is not given
         *   Print an error message when the user-specified URL is not absolute
-    2.  *[Optional]* the maximum distance in number of links from the starting
+    1.  *[Optional]* the maximum distance in number of links from the starting
             website to navigate.  When this parameter is not supplied or is not a
             positive integer your program will default to `3` links.
-
 *   Update the function `crawl()` to take the following parameters:
     *   `url`: an absolute URL
     *   `depth`: the current depth of recursion
     *   `maxdepth`: the maximum depth of recursion
     *   `visited`: a `set` of URLs which have already been visited
-
 *   The return value of `crawl()` does not matter and may be ignored
-
 *   Supply a starting distance of `0` the first time `crawl()` is called in
     your program.  In other words, the initial URL supplied from the command
     line is considered to be depth **0**.
-
 *   You may supply an empty set as the initial value of `visited`.  If there
     are some URLs which cause your program to behave poorly, you can add them
     to `visited` to avoid them later.
-
 *   Each time `crawl()` is called
     *   If the current value of `depth` exceeds `maxdepth`, immediately return from `crawl()`
     *   Otherwise, fetch the webpage indicated by `url`
@@ -52,25 +47,16 @@
 
 
 
-## Penalties
-
-Review the [Course Rules](https://gitlab.cs.usu.edu/erik.falor/fa19-cs1440-lecturenotes/blob/master/Course_Rules.md)
-document to avoid general penalties which apply to all assignments.  In
-particular, don't forget to include the *software development plan* and *sprint
-signature* documents.
-
-
-
 ## Preparation
 
-1.  Clone the starter code repository.
-2.  Carefully read these instructions and other documentation.
-3.  Study the starter program.
-4.  Install the required 3rd party libraries (you will find instructions
+0.  Clone the starter code repository.
+1.  Carefully read these instructions and other documentation.
+2.  Study the starter program.
+3.  Install the required 3rd party libraries (you will find instructions
     below).  `crawl.py` will successfully run when all required libraries have
     been installed.
-5.  Identify the base case(s) of this problem's recursion.
-6.  Draft your Software Development Plan *before* you begin writing any code.
+4.  Identify the base case(s) of this problem's recursion.
+5.  Draft your Software Development Plan *before* you begin writing any code.
     For this assignment it is especially important for you to really understand
     where you are going before you start writing code.
 
@@ -215,7 +201,7 @@ parameters** and/or **fragment**.
 ### Examples of Absolute URLs
 
 *   `https://duckduckgo.com`
-*   `https://gitlab.cs.usu.edu/erik.falor/cs1440-falor-erik-assn6/blob/master/recursion/doc/Instructions.md`
+*   `https://gitlab.cs.usu.edu/erik.falor/cs1440-falor-erik-assn5/blob/master/recursion/doc/Instructions.md`
 *   `https://usu.instructure.com/courses/547414/assignments/2698431?module_item_id=3503120`
 *   `http://dwm.suckless.org/tutorial/#content`
 
@@ -224,7 +210,7 @@ parameters** and/or **fragment**.
 
 *   `duckduckgo.com`
     -   A hostname only, no scheme
-*   `erik.falor/cs1440-falor-erik-assn6/blob/master/recursion/doc/Instructions.md`
+*   `erik.falor/cs1440-falor-erik-assn5/blob/master/recursion/doc/Instructions.md`
     -   No scheme nor hostname
 *   `assignments/2698431?module_item_id=3503120`
     -   No scheme nor hostname, only a partial path
@@ -241,7 +227,7 @@ convert the relative URL into an absolute one.  Your `crawl()` function must
 therefore know the URL of its current document so that it can substitute
 missing information into relative URLs.
 
-For example, if you point your program at http://cs.usu.edu and encounter a
+For example, if you point your program at `http://cs.usu.edu` and encounter a
 link to `/articles.aspx`, your program will convert this to the absolute URL
 `http://cs.usu.edu/articles.aspx`.
 

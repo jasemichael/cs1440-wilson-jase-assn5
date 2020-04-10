@@ -1,4 +1,4 @@
-# CS 1440 Assignment 6: Recursive Web Crawler
+# CS 1440 Assignment 5: Recursive Web Crawler
 
 * [Instructions](doc/Instructions.md)
 * [Rubric](doc/Rubric.md)

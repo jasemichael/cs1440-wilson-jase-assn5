@@ -1,4 +1,5 @@
-# CS 1440 Assignment 6 Sample output
+# CS 1440 Assignment 5 Sample output
+
 
 ### When no parameters are supplied
 
