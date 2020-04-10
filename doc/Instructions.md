@@ -50,11 +50,11 @@
 ## Preparation
 
 0.  Clone the starter code repository.
-1.  Carefully read these instructions and other documentation.
-2.  Study the starter program.
-3.  Install the required 3rd party libraries (you will find instructions
+1.  Carefully read these instructions and other documentation provided.
+2.  Install the required 3rd party libraries (you will find instructions
     below).  `crawl.py` will successfully run when all required libraries have
     been installed.
+3.  Study the starter program.
 4.  Identify the base case(s) of this problem's recursion.
 5.  Draft your Software Development Plan *before* you begin writing any code.
     For this assignment it is especially important for you to really understand
