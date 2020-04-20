@@ -8,7 +8,7 @@ from urllib.parse import urlparse, urljoin
 import sys
 
 
-def crawl(url):
+def crawl(url, depth, maxdepth, visited):
     """
     Given an absolute URL, print each hyperlink found within the document.
 
@@ -23,11 +23,11 @@ def crawl(url):
     """
 
     try:
-        print(url)
-        print("\tTODO: Print this URL with indentation indicating the depth of recursion")
+        print("    "*(depth) + url)
         response = requests.get(url)
+        visited.add(url)
         if not response.ok:
-            print(f"crawl({url}): {r.status_code} {r.reason}")
+            print("    "*(depth) + f"crawl({url}): {response.status_code} {response.reason}")
             return 
 
         html = BeautifulSoup(response.text, 'html.parser')
@@ -37,16 +37,13 @@ def crawl(url):
             if link:
                 # Create an absolute address from a (possibly) relative URL
                 absoluteURL = urljoin(url, link)
-                
                 # Only deal with resources accessible over HTTP or HTTPS
                 if absoluteURL.startswith('http'):
-                    print(absoluteURL)
-
-        print("\n\tTODO: Don't just print URLs found in this document, visit them!")
-        print("\tTODO: Trim fragments ('#' to the end) from URLs")
-        print("\tTODO: Use a data structure to track whether you've already visited a URL")
-        print("\tTODO: Call crawl() on unvisited newly formed URLs")
-        print("\tTODO: Don't visit a URL if you've reached the max depth of recursion")
+                    if "#" in absoluteURL:
+                        absoluteURL = absoluteURL.split("#")[0]
+                    if depth < maxdepth:
+                        if absoluteURL not in visited:
+                            crawl(absoluteURL, depth+1, maxdepth, visited)
 
     except Exception as e:
         print(f"crawl(): {e}")
@@ -75,5 +72,4 @@ if maxDepth == 1:
     plural = ''
 
 print(f"Crawling from {url} to a maximum depth of {maxDepth} link{plural}")
-print("\tTODO: crawl() must be able to keep track of the max depth: no globals allowed!")
-crawl(url)
+crawl(url, 0, maxDepth, {url})
